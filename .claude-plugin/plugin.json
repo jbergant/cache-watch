@@ -1,0 +1,26 @@
+{
+  "name": "cache-watch",
+  "version": "0.2.0",
+  "description": "Shows above the prompt, in one line, whether the conversation's prompt cache is still warm and how much of the weekly Fable limit is left; warns before a send that would re-write a cold cache, and can keep the cache warm for a capped time. The cache lifetime defaults to 60 minutes (the 1-hour cache window); set it to 5 for the Claude Code default.",
+  "types": "./types/index.d.ts",
+  "userConfig": {
+    "cacheTtlMinutes": {
+      "type": "number",
+      "title": "Cache lifetime in minutes",
+      "description": "How long the prompt cache lives after the last API call: 60 for the 1-hour window, 5 for the Claude Code default.",
+      "default": 60
+    },
+    "maxKeepWarmHours": {
+      "type": "number",
+      "title": "Keep-warm limit in hours",
+      "description": "The longest time keep-warm runs after it is started.",
+      "default": 2
+    },
+    "cacheWriteUsdPerMillion": {
+      "type": "number",
+      "title": "Cache-write price, USD per million tokens",
+      "description": "Used only for the estimate shown as about $. The default 18.75 is a plain estimate; set it to the cache-write price of the model you use.",
+      "default": 18.75
+    }
+  }
+}
